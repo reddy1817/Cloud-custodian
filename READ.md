@@ -1,0 +1,1 @@
+Cloud custodian policy will terminate the stopped instances on aws

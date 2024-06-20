@@ -1,0 +1,14 @@
+policies:
+ - name: terminate-stopped-ec2-instance
+   resourse: ec2
+   comment: |
+     Terminates EC2 insatnces that have been in the 'stopped' state for more than 2 minutes.
+   filters:
+      - type: value
+        key: State.Name
+        value: stopped
+      - type: instance-age
+        op: ge
+        days: 0.00347 #  5 minutes in days (5 / 1440)
+    actions:
+       - terminate
